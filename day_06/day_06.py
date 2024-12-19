@@ -85,3 +85,27 @@ def part1():
         print(len(visited_points))
 
 # part1()
+
+def part2():
+    with open(input_file_name) as f:
+        lines = f.readlines()
+
+        grid = []
+        for l in lines:
+            l = l.strip()
+
+            row = []
+            for i in l:
+                row.append(i)
+            grid.append(row)
+
+        obstacle_positions = []
+        starting_point = ()
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                if grid[i][j] == '#':
+                    obstacle_positions.append((i, j))
+                elif grid[i][j] == '^':
+                    starting_point = (i, j)
+        
+        print('Starting Point', starting_point)
